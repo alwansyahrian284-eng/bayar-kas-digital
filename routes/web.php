@@ -11,6 +11,19 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
+| HEALTH CHECK
+|--------------------------------------------------------------------------
+| Route khusus untuk mengecek apakah aplikasi berjalan dengan baik
+| di server EthioDeploy.
+*/
+
+Route::get('/health', function () {
+    return response('OK', 200);
+});
+
+
+/*
+|--------------------------------------------------------------------------
 | HALAMAN AWAL
 |--------------------------------------------------------------------------
 */
