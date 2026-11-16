@@ -1,0 +1,25 @@
+kind: wasmer.io/App.v0
+owner: alwansyahrian284-eng
+name: bayar-kas-digital
+package: .
+app_id: da_R36ILtlUz6Zj
+debug: false
+env:
+  APP_NAME: "Bayar Kas Digital"
+  APP_ENV: production
+  APP_DEBUG: "false"
+  APP_URL: "https://bayar-kas-digital.wasmer.app"
+  APP_LOCALE: id
+  APP_FALLBACK_LOCALE: en
+  LOG_CHANNEL: stderr
+  DB_CONNECTION: mysql
+  SESSION_DRIVER: database
+  CACHE_STORE: database
+  QUEUE_CONNECTION: database
+  FILESYSTEM_DISK: local
+  PUBLIC_STORAGE_PATH: /app/public/storage
+volumes:
+  - name: runtime
+    mount: /app/storage
+  - name: uploads
+    mount: /app/public/storage
