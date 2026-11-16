@@ -6,12 +6,24 @@ use App\Models\Pembayaran;
 use App\Models\Pengeluaran;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index()
     {
         $user = Auth::user();
+        // ======================================
+// REKAP AGREGAT COUNT DAN SUM
+// ======================================
+
+$rekapPembayaran = Pembayaran::select(
+    'status',
+    DB::raw('COUNT(*) as total_data'),
+    DB::raw('SUM(nominal) as total_nominal')
+)
+->groupBy('status')
+->get();
 
         /*
         |--------------------------------------------------------------------------
